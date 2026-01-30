@@ -1,0 +1,51 @@
+{
+<<<<<<< HEAD
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "name": "scl90-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+=======
+  "name": "scl90-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vainiiillaa/scl90-backend.git"
+>>>>>>> f150eac6d7a5a2d753d79cbc8d4c2964ade05eb5
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+<<<<<<< HEAD
+  "type": "commonjs"
+=======
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vainiiillaa/scl90-backend/issues"
+  },
+  "homepage": "https://github.com/vainiiillaa/scl90-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "redis": "^5.10.0",
+    "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+>>>>>>> f150eac6d7a5a2d753d79cbc8d4c2964ade05eb5
+}
