@@ -176,12 +176,18 @@ function getFactorStatus(score) {
     return { level: "extreme", text: "严重", color: "#a21222" };
 }
 
-function getOverallStatus(totalScore, positiveFactorCount) {
-    if (totalScore <= 120 && positiveFactorCount <= 2) return { text: "正常", color: "#28a745" };
-    if (totalScore <= 160 && positiveFactorCount <= 3) return { text: "轻度", color: "#ffc107" };
-    if (totalScore <= 200 && positiveFactorCount <= 4) return { text: "中度", color: "#fd7e14" };
-    if (totalScore <= 240 || positiveFactorCount <= 6) return { text: "偏重", color: "#dc3545" };
-    return { text: "严重", color: "#a21222" };
+function getOverallStatus(averageScore) {
+    if (averageScore < 1.5) {
+        return { text: "正常", color: "#28a745" };
+    } else if (averageScore < 2.5) {
+        return { text: "轻度", color: "#ffc107" };
+    } else if (averageScore < 3.5) {
+        return { text: "中度", color: "#fd7e14" };
+    } else if (averageScore < 4.5) {
+        return { text: "偏重", color: "#dc3545" };
+    } else {
+        return { text: "严重", color: "#a21222" };
+    }
 }
 
 app.post('/api/submit', authMiddleware, (req, res) => {
@@ -214,7 +220,7 @@ app.post('/api/submit', authMiddleware, (req, res) => {
             positiveFactorPercentage: ((positiveFactorCount / 9) * 100).toFixed(0) + "%"
         };
 
-        const overallAssessment = getOverallStatus(totalScore, positiveFactorCount);
+        const overallAssessment = getOverallStatus(stats.itemAverageScore);
         
         const detailedExplanations = factorDetails.map(factor => {
             // **【关键修复】** 确保查找时使用正确的level键
